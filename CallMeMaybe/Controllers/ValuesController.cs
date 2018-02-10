@@ -51,6 +51,20 @@ namespace CallMeMaybe.Controllers
         }
 
 
+        [HttpPost("{build}")]
+        public IList<IList<Item>> Post([FromBody]ItemRequest itemRequest)
+        {
+            if (itemRequest.Items.Count == 0)
+            {
+                return new List<IList<Item>>();
+            }
+
+            var builder = new ItemBuilder();
+            return builder.BuildCombos(itemRequest.Items);
+        }
+
+
+
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)

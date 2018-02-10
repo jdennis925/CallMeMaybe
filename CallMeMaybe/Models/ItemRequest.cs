@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace CallMeMaybe.Models
 {
-    public class FibExample
+    public class ItemRequest
     {
-        public double value { get; set; }
+        public IList<Item> Items { get; set; }
     }
 }
